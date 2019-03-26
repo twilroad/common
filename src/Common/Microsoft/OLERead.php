@@ -1,20 +1,20 @@
 <?php
 /**
- * This file is part of PHPOffice Common
+ * This file is part of TwilRoad Common
  *
- * PHPOffice Common is free software distributed under the terms of the GNU Lesser
+ * TwilRoad Common is free software distributed under the terms of the GNU Lesser
  * General Public License version 3 as published by the Free Software Foundation.
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/PHPOffice/Common/contributors.
+ * contributors, visit https://github.com/TwilRoad/Common/contributors.
  *
- * @link        https://github.com/PHPOffice/Common
- * @copyright   2009-2016 PHPOffice Common contributors
+ * @link        https://github.com/TwilRoad/Common
+ * @copyright   2009-2016 TwilRoad Common contributors
  * @license     http://www.gnu.org/licenses/lgpl.txt LGPL version 3
  */
 
-namespace PhpOffice\Common\Microsoft;
+namespace TwilRoad\Common\Microsoft;
 
 if (!defined('IDENTIFIER_OLE')) {
     define('IDENTIFIER_OLE', pack('CCCCCCCC', 0xd0, 0xcf, 0x11, 0xe0, 0xa1, 0xb1, 0x1a, 0xe1));

@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpOffice\Common\Adapter\Zip;
+namespace TwilRoad\Common\Adapter\Zip;
 
 interface ZipInterface
 {

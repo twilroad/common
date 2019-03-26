@@ -1,5 +1,5 @@
 {
-    "name": "phpoffice/common",
+    "name": "twilroad/common",
     "description": "PHPOffice Common",
     "keywords": ["PHP","Office","Common","component"],
     "homepage": "http://phpoffice.github.io",
@@ -28,7 +28,7 @@
     },
     "autoload": {
         "psr-4": {
-            "PhpOffice\\Common\\": "src/Common/"
+            "TwilRoad\\Common\\": "src/Common/"
         }
     }
 }
