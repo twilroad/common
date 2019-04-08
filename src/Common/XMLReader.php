@@ -23,6 +23,7 @@ namespace TwilRoad\Common;
  */
 class XMLReader
 {
+
     /**
      * DOMDocument object
      *
@@ -42,6 +43,7 @@ class XMLReader
      *
      * @param string $zipFile
      * @param string $xmlFile
+     *
      * @return \DOMDocument|false
      * @throws \Exception
      */
@@ -67,6 +69,7 @@ class XMLReader
      * Get DOMDocument from content string
      *
      * @param string $content
+     *
      * @return \DOMDocument
      */
     public function getDomFromString($content)
@@ -76,20 +79,22 @@ class XMLReader
         $this->dom = new \DOMDocument();
         $this->dom->loadXML($content);
         libxml_disable_entity_loader($originalLibXMLEntityValue);
+
         return $this->dom;
     }
 
     /**
      * Get elements
      *
-     * @param string $path
+     * @param string      $path
      * @param \DOMElement $contextNode
+     *
      * @return \DOMNodeList
      */
     public function getElements($path, \DOMElement $contextNode = null)
     {
         if ($this->dom === null) {
-            return array();
+            return [];
         }
         if ($this->xpath === null) {
             $this->xpath = new \DOMXpath($this->dom);
@@ -107,6 +112,7 @@ class XMLReader
      *
      * @param string $prefix The prefix
      * @param string $namespaceURI The URI of the namespace
+     *
      * @return bool true on success or false on failure
      * @throws \InvalidArgumentException If called before having loaded the DOM document
      */
@@ -118,14 +124,16 @@ class XMLReader
         if ($this->xpath === null) {
             $this->xpath = new \DOMXpath($this->dom);
         }
+
         return $this->xpath->registerNamespace($prefix, $namespaceURI);
     }
 
     /**
      * Get element
      *
-     * @param string $path
+     * @param string      $path
      * @param \DOMElement $contextNode
+     *
      * @return \DOMElement|null
      */
     public function getElement($path, \DOMElement $contextNode = null)
@@ -141,9 +149,10 @@ class XMLReader
     /**
      * Get element attribute
      *
-     * @param string $attribute
+     * @param string      $attribute
      * @param \DOMElement $contextNode
-     * @param string $path
+     * @param string      $path
+     *
      * @return string|null
      */
     public function getAttribute($attribute, \DOMElement $contextNode = null, $path = null)
@@ -168,8 +177,9 @@ class XMLReader
     /**
      * Get element value
      *
-     * @param string $path
+     * @param string      $path
      * @param \DOMElement $contextNode
+     *
      * @return string|null
      */
     public function getValue($path, \DOMElement $contextNode = null)
@@ -185,8 +195,9 @@ class XMLReader
     /**
      * Count elements
      *
-     * @param string $path
+     * @param string      $path
      * @param \DOMElement $contextNode
+     *
      * @return integer
      */
     public function countElements($path, \DOMElement $contextNode = null)
@@ -199,12 +210,18 @@ class XMLReader
     /**
      * Element exists
      *
-     * @param string $path
+     * @param string      $path
      * @param \DOMElement $contextNode
+     *
      * @return boolean
      */
     public function elementExists($path, \DOMElement $contextNode = null)
     {
         return $this->getElements($path, $contextNode)->length > 0;
+    }
+
+    public function saveXML($node)
+    {
+        return $this->dom->saveXML($node);
     }
 }
